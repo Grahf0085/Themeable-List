@@ -3,6 +3,7 @@ import {
   useAvailableAPIs,
   useSetSelectedApi,
 } from '../../state/ToonProvider';
+import styles from '../../styles.css';
 
 const ToonToggle = () => {
   const availableApis = useAvailableAPIs();
@@ -13,7 +14,7 @@ const ToonToggle = () => {
   return (
     <ul>
       {availableApis.map((api) => (
-        <li key={api}>
+        <li key={api} className={styles.selectorli}>
           <label>{api}</label>
           <input type="radio" name="api" value={api} onChange={handleChange} />
         </li>

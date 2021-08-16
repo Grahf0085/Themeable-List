@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAvailableThemes, useSetSelectedTheme } 
   from '../state/ColorProvider';
+import styles from '../styles.css';
 
 const Header = () => {
 
@@ -10,15 +11,17 @@ const Header = () => {
   const handleChange = ({ target }) => setSelectedTheme(target.value);
 
   return (
-    <ul>
-      {availableThemes.map((color) => (
-        <li key={color}>
-          <label>{color}</label>
-          <input type="radio" name="theme" 
-            value={color} onChange={handleChange} />
-        </li>
-      ))}
-    </ul>
+    <header>
+      <ul>
+        {availableThemes.map((color) => (
+          <li key={color} className={styles.selectorli}>
+            <label>{color}</label>
+            <input type="radio" name="theme" 
+              value={color} onChange={handleChange} />
+          </li>
+        ))}
+      </ul>
+    </header>
   );
 
 };
